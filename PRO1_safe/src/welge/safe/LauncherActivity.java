@@ -38,7 +38,7 @@ import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
 
 public class LauncherActivity extends Activity {
-	private static final int MSG_JSON_ERROR = 0;
+	private static final int MSG_JSON_ERROR = 5;
 	private static final int MSG_NET_ERROR = 1;
 	private static final int MSG_PROTOCOL_ERROR = 2;
 	private static final int MSG_URL_ERROR = 3;
@@ -87,7 +87,7 @@ public class LauncherActivity extends Activity {
 		//得到当前应用的版本
 		versionName = getVersionName();
 		//检查更新
-		checkUpdate("https://github.com/w229288802/android/tree/master/PRO1_safe/src/info/update.html?raw=true");
+		checkUpdate("https://raw.githubusercontent.com/w229288802/android/master/PRO1_safe/src/info/update.html");
 		
 		tv_version = (TextView) findViewById(R.id.tv_version);
 		tv_process = (TextView) findViewById(R.id.tv_process);
@@ -189,6 +189,7 @@ public class LauncherActivity extends Activity {
 						InputStream inputStream = conn.getInputStream();
 						//得到响应正文
 						String json = StreamTools.readFromStream(inputStream);
+						System.out.println(json);
 						//解释JSON
 						JSONObject jsonObject = new JSONObject(json);
 						//版本名字
