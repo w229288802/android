@@ -189,7 +189,6 @@ public class LauncherActivity extends Activity {
 						InputStream inputStream = conn.getInputStream();
 						//得到响应正文
 						String json = StreamTools.readFromStream(inputStream);
-						System.out.println(json);
 						//解释JSON
 						JSONObject jsonObject = new JSONObject(json);
 						//版本名字
