@@ -14,7 +14,7 @@
     </TextView>
 
     <welge.ui.FocusedTextView
-        android:textColor="@android:color/tertiary_text_light"
+        android:textColor="@android:color/tertiary_text_dark"
         android:textSize="22sp"
         android:layout_marginTop="10dp"
         android:layout_width="fill_parent"
