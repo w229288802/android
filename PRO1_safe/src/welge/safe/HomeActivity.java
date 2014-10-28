@@ -1,12 +1,9 @@
 package welge.safe;
 
-import welge.safe.R;
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
-import android.widget.SimpleAdapter;
 
 public class HomeActivity extends Activity{
 
