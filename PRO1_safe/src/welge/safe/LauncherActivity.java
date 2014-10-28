@@ -87,7 +87,7 @@ public class LauncherActivity extends Activity {
 		//得到当前应用的版本
 		versionName = getVersionName();
 		//检查更新
-		checkUpdate("http://222.16.20.31/update.html");
+		checkUpdate("https://github.com/w229288802/android/tree/master/PRO1_safe/src/info/update.html?raw=true");
 		
 		tv_version = (TextView) findViewById(R.id.tv_version);
 		tv_process = (TextView) findViewById(R.id.tv_process);
