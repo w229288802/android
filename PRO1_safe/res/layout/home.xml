@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-
+ 
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="55dp"
@@ -13,10 +13,24 @@
         android:textSize="22sp" >
     </TextView>
 
+    <welge.ui.FocusedTextView
+        android:textColor="@android:color/tertiary_text_light"
+        android:textSize="22sp"
+        android:layout_marginTop="10dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:text="最新功能：1.更新防狼功能。2。添加偷听功能。3。添加匿名追综功能">
+        
+    </welge.ui.FocusedTextView>
+    
     <GridView android:id="@+id/gv_list"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:numColumns="3">
+        android:numColumns="3"
+        android:layout_weight="1">
     </GridView>
 
+   
 </LinearLayout>

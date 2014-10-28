@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="welge.safe"
     android:versionCode="1"
-    android:versionName="2.0" >
+    android:versionName="1.0" >
 
     <uses-sdk
         android:minSdkVersion="9"
@@ -25,6 +25,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".HomeActivity"></activity>
+        <activity android:name=".SettingActivity"></activity>
     </application>
 
 </manifest>

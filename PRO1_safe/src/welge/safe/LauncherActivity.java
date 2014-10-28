@@ -18,6 +18,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
@@ -86,8 +87,14 @@ public class LauncherActivity extends Activity {
 		setContentView(R.layout.launcher);
 		//得到当前应用的版本
 		versionName = getVersionName();
-		//检查更新
-		checkUpdate("https://raw.githubusercontent.com/w229288802/android/master/PRO1_safe/src/info/update.html");
+		//获取检查更新设置
+		SharedPreferences config = getSharedPreferences("config", MODE_PRIVATE);
+		boolean update = config.getBoolean("update", false);
+		if(update){
+			//检查更新
+			checkUpdate("https://raw.githubusercontent.com/w229288802/android/master/PRO1_safe/src/info/update.html");
+			
+		}
 		
 		tv_version = (TextView) findViewById(R.id.tv_version);
 		tv_process = (TextView) findViewById(R.id.tv_process);
@@ -99,6 +106,14 @@ public class LauncherActivity extends Activity {
 		RelativeLayout rl_launcher = (RelativeLayout) findViewById(R.id.rl_launcher);
 		animation.setDuration(1000);
 		rl_launcher.startAnimation(animation);
+		if(!update){
+			try {
+				Thread.sleep(1);
+				enterHome();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 	/**
 	 * 打开更新对话框
@@ -114,6 +129,7 @@ public class LauncherActivity extends Activity {
 				HttpUtils httpUtils = new HttpUtils();
 				String target = Environment.getExternalStorageDirectory().getPath()+"/1.apk";
 				filePath = target ;
+				Toast.makeText(LauncherActivity.this, downloadUrl, 1).show();
 				httpUtils.download(downloadUrl,target, new RequestCallBack<File>() {
 					/**
 					 * 安装APK
@@ -124,7 +140,6 @@ public class LauncherActivity extends Activity {
 					  intent.setAction("android.intent.action.VIEW");
 					  intent.addCategory("android.intent.category.DEFAULT");
 					  intent.setDataAndType(Uri.fromFile(t), "application/vnd.android.package-archive");
-					  
 					  startActivity(intent);
 					  
 					}
@@ -203,8 +218,8 @@ public class LauncherActivity extends Activity {
 						if(!version.equals(versionName)){
 							msg.what = MSG_UPDATE_APP;
 						}else{
-							if(totalTime <2000){
-								Thread.sleep(2000-totalTime);
+							if(totalTime <1000){
+								Thread.sleep(1000-totalTime);
 							}
 							enterHome();
 						}
