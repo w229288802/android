@@ -99,7 +99,7 @@ public class LauncherActivity extends Activity {
 		tv_version = (TextView) findViewById(R.id.tv_version);
 		tv_process = (TextView) findViewById(R.id.tv_process);
 		
-		tv_version.setText("°æ±¾ºÅ:"+versionName);
+		//tv_version.setText("°æ±¾ºÅ:"+versionName);
 		
 		//°¢¶û·¨¶¯»­
 		AlphaAnimation  animation = new AlphaAnimation(0.1f, 1.0f);
