@@ -25,10 +25,21 @@
 
 		Thread：线程，负责调度整个消息循环，即消息循环的执行场所。
 		
-		<comment>
-		    一个线程最多只有一个消息循环Looper,
+		<comment title="Looper">
+		    一个线程最多只有一个消息循环Looper,主线程默认有Looper，而子线程中可有可没有。而Handler可以有多个，但必须先有Looper
+		   public static void main(..){
+		   		...
+			    Looper.prepare();//在该线程中取出或绑定当前线程
+			    ...
+			    Looper.loop();//线程循环取出从消息队列中取出Message，然后通过Handler处理
+		    }
 		</comment>
-
+		Handler创建过程：
+		1.必须调用了Looper,即拿到线程的Looper.因为没有Looper,Handler就没有作用。
+		消息发送过程：
+		1.A线程需要拿到B线程的handler对象(通常为类的字段)
+		2.调用handler.sendMessage()
+		3.B线程必须通过Looper.loop()取messageQueue中有消息再通过Handler处理
     </record>
 
 </note>
