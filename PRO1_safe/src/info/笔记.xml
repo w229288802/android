@@ -1,10 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <note>
-    <record title="匿名类">
+
+    <record title="匿名类" >
         1.匿名类中成员不能加static修鉓，因类创建时对象就会被创建
-		2.匿名类没有名字所以没有构造函数，可以使用{}动态代码块来实现;    </record>
-    
-    <record title="">
+		2.匿名类没有名字所以没有构造函数，可以使用{}动态代码块来实现;    
+    </record>
+
+    <record title="主线程网络异渖" >
+		1.网络请求不能放在主线程，因为connect请求会阻塞主线程，主线程是用于更新UI。    
+    </record>
+
+    <record title="更新UI异常" >
+       	 子线程不能更新UI，主线程才能更新UI，可以利用Handler消息机制来更新UI    
+    </record>
+
+    <record title="Handler消息处理机制" >
+        Message：消息，其中包含了消息ID，消息处理对象以及处理的数据等，由MessageQueue统一列队，终由Handler处理。
+
+		MessageQueue：消息队列，用来存放Handler发送过来的消息，并按照FIFO规则执行。当然，存放Message并非实际意义的保存，而是将Message以链表的方式串联起来的，等待Looper的抽取。
+
+		Handler：处理者，负责Message的发送及处理。使用Handler时，需要实现handleMessage(Message msg)方法来对特定的Message进行处理，例如更新UI等。
+
+		Looper：消息泵，不断地从MessageQueue中抽取Message执行。因此，一个MessageQueue需要一个Looper。
+
+		Thread：线程，负责调度整个消息循环，即消息循环的执行场所。
+		
+		<comment>
+		    一个线程最多只有一个消息循环Looper,
+		</comment>
 
     </record>
 

@@ -1,5 +1,7 @@
 package welge.ui;
 
+import java.lang.reflect.InvocationTargetException;
+
 import welge.safe.R;
 import android.content.Context;
 import android.util.AttributeSet;
@@ -18,17 +20,39 @@ public class SettingItemLayout extends RelativeLayout{
 	public SettingItemLayout(Context context) {
 		super(context);
 		this.initView(context);
+		System.out.println("dadasdsd");
 	}
 
 	public SettingItemLayout(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 		this.initView(context);
-		
 	}
 
 	public SettingItemLayout(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		this.initView(context);
+		final String attributeValue = attrs.getAttributeValue("http://schemas.android.com/apk/res/welge.safe", "dds");
+		cb_status.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				try {
+					SettingItemLayout.this.getClass().getMethod(attributeValue).invoke(SettingItemLayout.this);
+				} catch (NoSuchMethodException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IllegalArgumentException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IllegalAccessException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (InvocationTargetException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 	private void initView(Context context){
 		View.inflate(context, R.layout.setting_item_view, this);

@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
+import android.os.Looper;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 public class SettingActivity extends Activity{
 	@Override
 	public void onCreate(Bundle savedInstanceState){
+		Looper.prepare();
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.setting);
 		final SharedPreferences sp = getSharedPreferences("config",MODE_PRIVATE);

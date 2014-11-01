@@ -41,6 +41,7 @@ int attr backgroundStacked 0x7f010030
 int attr buttonBarButtonStyle 0x7f010018
 int attr buttonBarStyle 0x7f010017
 int attr customNavigationLayout 0x7f010032
+int attr dds 0x7f01006e
 int attr disableChildrenWhenDisabled 0x7f010054
 int attr displayOptions 0x7f010028
 int attr divider 0x7f01002e
@@ -601,6 +602,8 @@ int styleable Spinner_disableChildrenWhenDisabled 9
 int styleable Spinner_popupPromptView 8
 int styleable Spinner_prompt 6
 int styleable Spinner_spinnerMode 7
+int[] styleable TextView { 0x7f01006e }
+int styleable TextView_dds 0
 int[] styleable Theme { 0x7f010047, 0x7f010048, 0x7f010049, 0x7f01004a, 0x7f01004b, 0x7f01004c }
 int styleable Theme_actionDropDownStyle 0
 int styleable Theme_dropdownListPreferredItemHeight 1
