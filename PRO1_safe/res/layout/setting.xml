@@ -8,7 +8,9 @@
     
 	<welge.ui.SettingItemLayout android:id="@+id/m_s1" 
 	    android:layout_width="fill_parent"
-	    w:dds="d"
+		w:desc_on="自动更新已打开"
+		w:desc_off="自动更新已关闭"
+		w:_title="设置自动更新"
 	    android:layout_height="wrap_content">
 	    
 	    
