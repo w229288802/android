@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<note>
+    <record title="应用程序签名">
+        1.先创建一个RSA签名文件
+        2.两个应用包名相同，所以签名也相同才能调用Android里packageInstaller的隐式意图安装
+    </record>
+    
+    <record title="对话框">
+        <comment title="主题">
+            	Actvity下的主题都应用了低版本主题，所心把它删除了，在AppTheme下加入
+            	<item name="android:windowNoTitle">true</item>
+            	这样acivity没有标题而且主题也应用了高版本
+        </comment>
+    </record>
+    
+    <record title="自定义滚动的TextView">
+        1.必须获得焦点
+        2.singleLine
+        3.ellipsize省略属性
+    </record>
+    
+    <record title="自定义控件">
+        1.继承View或该子类
+        2.通过<包名.类名/>的标签来在布局文件中使用。
+        <comment title="自定义的控件的属性">
+           	1.在res/values/中加入attrs.xml文件：            <!--
+	            <declare-styleable name="TextView" >
+	                <attr name="attributeName" format="string" ></attr>
+	            </declare-styleable>            -->
+            2.在布局文件加入schema的名字空间:http://schemas.android.com/apk/{应用包名}
+		</comment>
+    </record>
+    
+</note>
